@@ -20,3 +20,7 @@ Now that we know what is an investment fund, and how is its structure, let's be 
 To answer those questions, I'm making this project using open data from financial institutions and regulators to analyze funds marketl. At the end of it, I'll test some machine learning models to see if I can predect funds behavior for future months. The project follows this pipeline:
 
 ![Alt text](https://github.com/Ana-Akaishi/data-science-projects/blob/main/Brazilian%20Investment%20Funds/images/pipeline_image.png)
+
+Database Scheema
+
+![Alt text](https://github.com/Ana-Akaishi/data-science-projects/blob/main/Brazilian%20Investment%20Funds/images/BFF_DB_scheema.png)
