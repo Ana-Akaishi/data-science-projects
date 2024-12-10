@@ -27,3 +27,10 @@ Loan default is nothing but a classifier problem. I need to classify clients bet
 
 This situation allow me to use **Logistic Regression** to classify and predict bad (default) clients.
 I'll compare the results of this linear regression with **Neural Networks** and check who perform better due the variables available.
+
+## Project Steps
+Since this is a kaggle dataset and is already divided by train and test sets, there's not much cleaning or extra extractions to be made.
+Instead, I'll jump right into our exploratory data analysis (EDA) and run some models. I'll deal with the unbalanced classes in two different ways, generating synthetic data and penalizing the model, each one in a different notebook.
+0 - EDA
+1.1 - Logit & NN with synthetic data
+1.2 - Logit & NN increasing model penalization
