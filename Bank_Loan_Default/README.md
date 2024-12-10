@@ -1,4 +1,4 @@
-![Alt textt](https://cdn.pixabay.com/photo/2019/09/27/17/02/rupee-4508945_1280.jpg)
+![bank loand default cover](https://cdn.pixabay.com/photo/2019/09/27/17/02/rupee-4508945_1280.jpg)
 
 # Bank Loan Default
 
@@ -14,3 +14,15 @@ Default clients are a **tail event**. They are rare, otherwise the bank would go
 Basically, if you cherry pick default clients from past datasets (even from the same bank) you are adding unknonwn variables from that time period. And this will make a bigger mess and the model won't perform well.
 
 ## How to fix unbalanced datasets?
+There are a few ways to deal with unbalanced datasets. Since default is a very rare event, we can:
+- Generate synthetic data for minority class
+- Increase the penalty if the model classify the minority class
+
+If you want more information, [this](https://dataheadhunters.com/academy/how-to-build-a-business-credit-risk-model-in-python/) is a good reference reading.
+Even though is abour credit risk, the principles are the same for default loans. Rare events, clientes with N number of features on which we want to predict bad clients.
+
+## Model
+Loan default is nothing but a classifier problem. I need to classify clients between defaulter and non-defaulter.
+
+This situation allow me to use **Logistic Regression** to classify and predict bad (default) clients.
+I'll compare the results of this linear regression with **Neural Networks** and check who perform better due the variables available.
