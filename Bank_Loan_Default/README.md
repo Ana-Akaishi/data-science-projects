@@ -31,6 +31,7 @@ I'll compare the results of this linear regression with **Neural Networks** and 
 ## Project Steps
 Since this is a kaggle dataset and is already divided by train and test sets, there's not much cleaning or extra extractions to be made.
 Instead, I'll jump right into our exploratory data analysis (EDA) and run some models. I'll deal with the unbalanced classes in two different ways, generating synthetic data and penalizing the model, each one in a different notebook.
-0 - EDA
-1.1 - Logit & NN with synthetic data
-1.2 - Logit & NN increasing model penalization
+00 - EDA
+01 - Feature Engineering
+2.1 - Logit & NN with synthetic data
+2.2 - Logit & NN increasing model penalization
