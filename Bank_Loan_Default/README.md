@@ -14,8 +14,8 @@ Default clients are a **tail event**. They are rare, otherwise the bank would go
 
 Basically, if you cherry pick default clients from past datasets (even from the same bank) you are adding unknonwn variables from that time period. And this will make a bigger mess and the model won't perform well.
 
-## How to fix unbalanced datasets?
-There are a few ways to deal with unbalanced datasets. Since default is a very rare event, we can:
+## How to fix inbalanced datasets?
+There are a few ways to deal with inbalanced datasets. Since default is a very rare event, we can:
 - Generate synthetic data for minority class
 - Increase the penalty if the model classify the minority class
 
@@ -23,15 +23,21 @@ If you want more information, [this](https://dataheadhunters.com/academy/how-to-
 Even though is abour credit risk, the principles are the same for default loans. Rare events, clientes with N number of features on which we want to predict bad clients.
 
 ## Model
-Loan default is nothing but a classifier problem. I need to classify clients between defaulter and non-defaulter.
+Loan default is nothing but a classifier problem. I need to classify clients between defaulter and non-defaulter, so a two class problem.
 
 This situation allow me to use **Logistic Regression** to classify and predict bad (default) clients.
-I'll compare the results of this linear regression with **Neural Networks** and check who perform better due the variables available.
+I'll compare the results of this linear regression with other models such as:
+- **XGBoost**, popular for it's precision and applicability 
+- [**Light GBM**](https://www.kaggle.com/discussions/general/264327), an alternative for gradient boosting
+- **Support Vectorial Machines**, non-linear models that can be used to classification as well
+- **Neural Networks** 
+
+And finally check who perform better due the variables available.
 
 ## Project Steps
 Since this is a kaggle dataset and is already divided by train and test sets, there's not much cleaning or extra extractions to be made.
-Instead, I'll jump right into our exploratory data analysis (EDA) and run some models. I'll deal with the unbalanced classes in two different ways, generating synthetic data and penalizing the model, each one in a different notebook.
+Instead, I'll jump right into our exploratory data analysis (EDA) and run some models. I'll deal with the inbalanced classes in two different ways, generating synthetic data and penalizing the model, each one in a different notebook.
 00 - EDA
 01 - Feature Engineering
-2.1 - Logit & NN with synthetic data
-2.2 - Logit & NN increasing model penalization
+03 - ML with synthetic data
+04 - ML increasing model penalization
