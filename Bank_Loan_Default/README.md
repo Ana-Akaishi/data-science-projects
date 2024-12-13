@@ -28,7 +28,7 @@ Loan default is nothing but a classifier problem. I need to classify clients bet
 This situation allow me to use **Logistic Regression** to classify and predict bad (default) clients.
 I'll compare the results of this linear regression with other models such as:
 - **XGBoost**, popular for it's precision and applicability 
-- [**Light GBM**](https://www.kaggle.com/discussions/general/264327), an alternative for gradient boosting
+- [**Light GBM**](https://www.kaggle.com/code/prashant111/lightgbm-classifier-in-python), an alternative for gradient boosting
 - **Support Vectorial Machines**, non-linear models that can be used to classification as well
 - **Neural Networks** 
 
