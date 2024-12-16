@@ -37,7 +37,9 @@ And finally check who perform better due the variables available.
 ## Project Steps
 Since this is a kaggle dataset and is already divided by train and test sets, there's not much cleaning or extra extractions to be made.
 Instead, I'll jump right into our exploratory data analysis (EDA) and run some models. I'll deal with the inbalanced classes in two different ways, generating synthetic data and penalizing the model, each one in a different notebook.
+
 00 - EDA
 01 - Feature Engineering
-03 - ML with synthetic data
-04 - ML increasing model penalization
+02 - ML with synthetic data
+03 - ML increasing model penalization
+04 - Comparing Results
