@@ -22,8 +22,14 @@ I use [scikitlearn](https://scikit-learn.org/1.5/modules/generated/sklearn.model
     1. [Regressor](#rfr)
     2. [Classifier](#rfc)
 5. [XGBooost](#xgb)
+    1. [Regressor](#xgbr)
+    2. [Classifier](#xgbc)
 6. [Light GBM](#lgbm)
+    1. [Regressor](#lgbmr)
+    2. [Classifier](#lgbmc)
 7. [CatBoost](catb)
+    1. [Regressor](#catr)
+    2. [Classifier](#catc)
 8. [K-Nearest Neighbors](#knn)
 9. [Support Vector Machine]((#svm))
 10. [Artificial Neural Networks](#ann)
@@ -190,13 +196,175 @@ param_grid = {
 }
 ```
 ### XGBooost (XGB) <a name="xgb"></a>
+XGBoost can be used for regression or classification. Most of the parameters will be the same, but `XGBClassifier` has one more parameter to change.
+
+And a reminder, XGBoost work on a **tree based models**, so some parameters will be familiar to you.
+
+```
+import xgb
+```
+
+#### XGBoost Regressor <a name='xgbr'></a>
+- n_estimators: # of trees, has to be int.
+- learning_rate: learning rate, and must be float. A high learning rate means the model will converge to minimun error faster, but risks to overfit.
+- max_depth: how deep each tree will go, has to be int
+- reg_alpha: L1 regularization, must be float
+- reg_lambda: L2 regularization, must be float
+
+```
+param_grid = {
+    'n_estimators': [100, 200, 500],
+    'learning_rate': [0.01, 0.1, 0.3],
+    'max_depth': [3, 6, 10],
+    'reg_alpha': [0, 0.01, 0.1, 1],
+    'reg_lambda': [1, 1.5, 2]
+}
+```
+#### XGBoost Classifier <a name='xgbc'></a>
+- n_estimators
+- learning_rate
+- max_depth
+- reg_alpha
+- reg_lambda
+- scale_pos_weight: balance imbalanced classes (# negative class/# positive class), where negative class is y = 0, and positive is y = 1
+- objective: function used to classify the observations('binary:logistic','multi:softmax')
+
+```
+param_grid = {
+    'n_estimators': [100, 200, 500],
+    'learning_rate': [0.01, 0.1, 0.3],
+    'max_depth': [3, 6, 10],
+    'reg_alpha': [0, 0.01, 0.1, 1],
+    'reg_lambda': [1, 1.5, 2],
+    'scale_pos_weight': [1, 10, 20],
+    'objective': ['binary:logistic','multi:softmax']
+}
+```
 
 ### Light GBM <a name="lgbm"></a>
+Light GBM is another **decision tree model**, but focused on expanding leaves rather than increasing the # of trees.
 
+Following the same structure, we have regressor and classifier.
+
+```
+import lightgbm as lgb
+```
+
+#### Light GBM Regressor <a name='lgbmr'></a>
+- num_leaves: max # of leaves in each tree, higher the leaf # higher the chance of overfitting
+- learning_rate: self-explained at this point, c'mon
+- n_estimators: # or trees
+- max_depth: -1 means it has no limit
+- reg_alpha 
+- reg_lambda
+
+```
+param_grid = {
+    'num_leaves': [31, 50, 70],
+    'learning_rate': [0.01, 0.05, 0.1],
+    'n_estimators': [100, 200, 500],
+    'max_depth': [-1, 10, 20],
+    'reg_alpha': [0, 0.1, 1.0],
+    'reg_lambda': [0, 0.1, 1.0]
+}
+```
+
+#### Light GBM Classifier <a name='lgbmc'></a>
+- num_leaves
+- learning_rate
+- n_estimators
+- max_depth
+- reg_alpha 
+- reg_lambda
+- scale_pos_weight: balance imbalanced classes (# negative class/# positive class), where negative class is y = 0, and positive is y = 1
+
+
+```
+param_grid = {
+    'num_leaves': [31, 50, 70],
+    'learning_rate': [0.01, 0.05, 0.1],
+    'n_estimators': [100, 200, 500],
+    'max_depth': [-1, 10, 20],
+    'reg_alpha': [0, 0.1, 1.0],
+    'reg_lambda': [0, 0.1, 1.0],
+    'scale_pos_weight': [1, 10, 50]
+}
+```
 
 ### CatBoost - Ideal for CATegorical model <a name="catb"></a>
+Despite the name, catboost can be used for regression and classification. It's also a tree and gradient boost technique, but the main difference is **CATboost creates symmetrical trees.**
+
+And why does it matter? (You might ask)
+- Symmetrical trees avoid overfitting
+
+```
+from catboost import CatBoostRegressor, CatBoostClassifier
+```
+#### CatBoost Regressor <a name='catr'></a>
+- iterations: tree #
+- learning_rate
+- depth: max depth of each Tree
+- l2_leaf_reg: L2 regularization, helps avoid overfitting. Low regularization leads to overfitting.
+- loss_function: loss function used ('RMSE', 'MAE', 'Quantile')
+
+```
+param_grid = {
+    'iterations': [100, 500, 1000],
+    'learning_rate': [0.01, 0.05, 0.1],
+    'depth': [4, 6, 10],
+    'l2_leaf_reg': [1, 3, 5],
+    'loss_function': ['RMSE', 'MAE']
+}
+```
+
+#### CatBoost Classifier <a name='catc'></a>
+- iterations: tree #
+- learning_rate
+- depth: max depth of each Tree
+- l2_leaf_reg
+- scale_pos_weight: adjust the imbalance class (# negative class/# postive class). On which negative class y=0, and positive y=1
+
+```
+param_grid = {
+    'iterations': [100, 500, 1000],
+    'learning_rate': [0.01, 0.05, 0.1],
+    'depth': [4, 6, 10],
+    'l2_leaf_reg': [1, 3, 5],
+    'scale_pos_weight': [1, 5, 10] 
+}
+```
 
 ### K-Nearest Neighbors (KNN) <a name="knn"></a>
+KNN is used on classification problems, and creates the classes based on the mean distance between observations.
+
+```
+from sklearn.neighbors import NearestNeighbors
+```
+Hyperparameters we can adjust:
+- n_neighbors: number of classes
+- weights: impact of neighbors weight on classifying the observation. `'uniform'` if they have the same weight, `'distance'` if closest have more weight
+- metric: how calculate distance ("euclidean", "manhattan", "minkowski")
+- p: **used only if minkowski metric is on**, controls the type of distance (1 for Manhattam and 2 for Euclidian)
+- algorithm: how to find neighbors, usually it goes 'auto' ("auto", "ball_tree", "kd_tree", "brute")
+
+```
+param_grid = {
+    'n_neighbors': [3, 5, 10, 20],
+    'weights': ['uniform', 'distance'],
+    'metric': ['euclidean', 'manhattan', 'minkowski'],
+    'p': [1, 2],  # Apenas usado com minkowski
+    'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute']
+}
+```
+Notes:
+1. Euclidian: a straight line between two points. When to use:
+    - Continuous data
+    - Standard data
+    - Independent data
+2. Manhattan: measures the path between two points. When to use:
+    - Absolute values
+    - Ouliers
+3. Minkowski: generic distance of euclidean and manhattan.
 
 ### Support Vector Machine (SVM) <a name="svm"></a>
 
