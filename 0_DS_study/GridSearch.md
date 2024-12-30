@@ -31,8 +31,10 @@ I use [scikitlearn](https://scikit-learn.org/1.5/modules/generated/sklearn.model
     1. [Regressor](#catr)
     2. [Classifier](#catc)
 8. [K-Nearest Neighbors](#knn)
-9. [Support Vector Machine]((#svm))
-10. [Artificial Neural Networks](#ann)
+9. [Support Vector Machine](#svm)
+    1. [Regressor](#svmr)
+    2. [Classifier](#svmc)
+
 
 ## Hyperparameters
 ### Linear Regression <a name="linearR"></a>
@@ -367,5 +369,46 @@ Notes:
 3. Minkowski: generic distance of euclidean and manhattan.
 
 ### Support Vector Machine (SVM) <a name="svm"></a>
+Support Vector Machines are non linear models that can be used for regressions or classification problems.
 
-### Artificial Neural Networks (ANN) <a name="ann"></a>
+```
+from sklearn import svm
+```
+
+#### SVM Regressor <a name='svmr'></a>
+- C: model error penalty, higher the value higher the penalization
+- epsilon: error margin, high margins allow more errors without penalization
+- kernel: function used to transform your data to a higher dimension so the model can find the hyperplan ('linera','poly','rbf', 'sigmoid)
+    - linear: ideal for linear data
+    - poly: when data has a polynomial function (you need to specify the degree)
+    - rbf: default model and expects a gaussian (normal) distribution
+    - sigmoid: similar to neural networks
+- degree: polynomial kernel degree
+- gamma: how much each observation impacts the model ('scale','auto', float values)
+
+```
+param_grid = {
+    'C': [0.1, 1, 10, 100],
+    'epsilon': [0.01, 0.1, 1],
+    'kernel': ['linear', 'rbf', 'poly'],
+    'degree': [2, 3, 4],
+    'gamma': ['scale', 'auto']
+}
+```
+
+#### SVM Classifier <a name='svmc'></a>
+- C
+- kernel
+- gamma
+- degree
+- class_weight: adjust the class weight, default is set to none ('balanced', 'None')
+
+```
+param_grid = {
+    'C': [0.1, 1, 10, 100],
+    'kernel': ['linear', 'rbf', 'poly', 'sigmoid'],
+    'gamma': ['scale', 'auto'],
+    'degree': [2, 3, 4],
+    'class_weight': [None, 'balanced']
+}
+```
