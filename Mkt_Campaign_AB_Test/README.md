@@ -32,3 +32,9 @@ Promotion 3 performed well in sales volume (47 WoW) and financial performance ($
 Also, when analyzed stores size, large and medium unites tend to perform better in terms of sale and revenue. It would be interesting if we had the cost of each unit to see if it's worth to keep **small stores** or not.
 
 ## A/B Test Summary
+In this project, I ran an A/B Test to evaluate the effectiveness of 3 marketing campaigns for a fast food company. Based on the statistical analysis, promotion 1 and 2 are statistical different from each other. Promotion 3 on the other hand, is  different from promotion 2 but similar to promotio 1.
+
+Insights BASED ONLY ON THE AVAILABLE INFORMATION:
+- Based on EDA analysis, the company should chose to move with Promotions 1 OR 3
+- My recommendation is to move with Promotion 1, despite the lower volume in sales, Promotion 1 has the highest avarage revenue
+- Drop promotion 2, despite have a higher sales volume, it has the lowest revenue

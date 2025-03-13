@@ -33,9 +33,13 @@ For Python, we'll use statsmodels and scipy:
 ```
 import statsmodels.stats.api as sms     # Used to do the calculate the minimum sample size
 from scipy.stats import shapiro, ttest_1samp, ttest_ind, levene, kruskal, mannwhitneyu, pearsonr, spearmanr
+
+import scikit_posthocs as sp
 ```
 
 or for a generic overview `import scipy.stats as stats`
+
+In case you run tests with more than 2 groups, I suggest you to use `Dunn's Test` after `kruskal`.
 
 ### Minimum Sample Size
 The `main_metric_groupA` is our current benchmark, usually comes from business as usual metrics. While `main_metric_groupB` will be an ESTIMATION for the treatment expected result. There's two way to calculate the GROUP B metric:
