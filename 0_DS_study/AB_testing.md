@@ -85,7 +85,7 @@ print(required_n)
 #### Nonparametric tests
 **levene (Levene Test)**
 - Compares if the [variance](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.bgsu.edu/content/dam/BGSU/college-of-arts-and-sciences/center-for-family-and-demographic-research/documents/Help-Resources-and-Tools/Statistical%20Analysis/Annotated-Output-T-Test-SPSS.pdf) between groups is statistical significant
-- The null hypothesis is: groups are have variance homoheneity (same distribution)
+- The null hypothesis is: groups are have variance homogeneity (same distribution)
 - P-value < 0.05, then **groups have different variance**
 
 **kruskal (Kruskal-Wallis H-test or Non-parametric ANOVA test)**
@@ -98,6 +98,8 @@ print(required_n)
 - [Central tendency](https://statistics.laerd.com/statistical-guides/measures-central-tendency-mean-mode-median.php) are statistical measures of mean, mode and median
 - Null hypothesis (H0): There is no difference (in terms of central tendency) between the two groups in the population.
 - P-value <0.05, then **groups have different central tendency**
+
+*obs: if you want to run the same test but for more than 2 groups, run Kruskal-Wallis*
 
 **spearmanr (Spearman rank-order correlation)**
 - Nonparametric version of Pearson correlation

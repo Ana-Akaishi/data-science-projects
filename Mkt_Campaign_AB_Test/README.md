@@ -18,3 +18,17 @@ First, I'll analyze the dataset and how the variables behave around each promoti
 00_EDA
 
 01_AB_Test
+
+## EDA Summary
+
+This fast food company has 137 stores, devided between Small (15), Medium (80) and Large (42) stores. The company has been in the market for 28 years, and just opened some big stores (76 new units) that are the top sellers in the network ($4,464 thousand). Marketing team ran a promotion/campaign across the stores, and measures week over week.
+
+Promotion 1 has the lowest volume of sales (43 WoW), but delivered the best financial performance (avg $57 thousands). It means customers bought morte items per transaction, this result happened mainly in medium and large units.
+
+Promotion 2 has a good volume of sales (47 WoW), same as Promotion 3, but had the lowest avarage revenue ($47 thousands). This could be interpretated as customers buying cheap items from the menu. To investigate what happen **I suggest the marketing team run an analysis of customer behavior, demographics and location**.
+
+Promotion 3 performed well in sales volume (47 WoW) and financial performance ($55 thousands).
+
+Also, when analyzed stores size, large and medium unites tend to perform better in terms of sale and revenue. It would be interesting if we had the cost of each unit to see if it's worth to keep **small stores** or not.
+
+## A/B Test Summary
